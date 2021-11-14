@@ -49,7 +49,8 @@ def convert_vocab_sentence_to_text_file_import_line(v: Vocabulary, en: str, jp: 
 {jp}"'''
     # second entry is the english meaning.
     # third entry contains readings.
-    line = [characters_and_japanese_text, en, ','.join([r.reading for r in v.readings])]
+    line = [characters_and_japanese_text, en,
+            ','.join([m.meaning for m in v.meanings]) + " - " + ','.join([r.reading for r in v.readings])]
     return ';'.join(line)
 
 
